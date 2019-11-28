@@ -3,12 +3,13 @@ import { action } from "mobx";
 import { observer } from "mobx-react";
 import { clone, applySnapshot, getSnapshot } from "mobx-state-tree";
 
-import { TWishListItem } from "../../models/WishList";
+import { TWishlistItem } from "../../models/Wishlist/Wishlist";
 import WishlistItemView from "./WishlistItemView";
 import WishlistItemEdit from "./WishlistItemEdit";
 import { Buttons } from "./styled";
+import { Button } from "../common";
 
-const WishlistItem: FC<{ item: TWishListItem }> = ({ item }) => {
+const WishlistItem: FC<{ item: TWishlistItem }> = ({ item }) => {
   const [isEditing, setIsEditing] = useState(false);
 
   const transientItem = useMemo(() => clone(item), [item]);
@@ -39,13 +40,13 @@ const WishlistItem: FC<{ item: TWishListItem }> = ({ item }) => {
       <Buttons>
         {isEditing ? (
           <>
-            <button onClick={saveEdit}>{"✔"}</button>
-            <button onClick={cancelEdit}>{"✘"}</button>
+            <Button onClick={saveEdit}>{"✔"}</Button>
+            <Button onClick={cancelEdit}>{"✘"}</Button>
           </>
         ) : (
           <>
-            <button onClick={toggleEdit}>{"✎"}</button>
-            <button onClick={remove}>{"⌫"}</button>
+            <Button onClick={toggleEdit}>{"✎"}</Button>
+            <Button onClick={remove}>{"⌫"}</Button>
           </>
         )}
       </Buttons>

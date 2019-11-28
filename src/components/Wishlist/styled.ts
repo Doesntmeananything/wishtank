@@ -18,3 +18,8 @@ export const Item = styled.li`
   min-height: 100px;
   text-align: right;
 `;
+
+export const Total = styled.div`
+  width: max-content;
+  margin: 1.6rem 52px 1.6rem auto;
+`;

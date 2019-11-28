@@ -25,7 +25,7 @@ export const Wrapper = styled.div`
   }
 `;
 
-export const Thing = styled.label`
+export const Name = styled.label`
   width: calc(70% - 8px);
   margin-right: 8px;
 `;

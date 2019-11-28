@@ -1,9 +1,9 @@
 import React, { FC } from "react";
 
-import { TWishListItem } from "../../../models/WishList";
+import { TWishlistItem } from "../../../models/Wishlist/Wishlist";
 import { Data, Image } from "./styled";
 
-const WishlistItemView: FC<{ item: TWishListItem }> = ({ item }) => {
+const WishlistItemView: FC<{ item: TWishlistItem }> = ({ item }) => {
   return (
     <>
       <Image>{item.image && <img src={item.image} />}</Image>

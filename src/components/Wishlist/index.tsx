@@ -1,11 +1,12 @@
 import React, { FC } from "react";
 import { observer } from "mobx-react";
 
-import { TWishList } from "../../models/WishList";
+import { TWishlist } from "../../models/Wishlist/Wishlist";
 import WishlistItem from "../WishlistItem";
-import { List, Item } from "./styled";
+import { List, Item, Total } from "./styled";
+import WishlistItemEntry from "../WishlistItemEntry";
 
-const Wishlist: FC<{ wishlist: TWishList }> = ({ wishlist }) => {
+const Wishlist: FC<{ wishlist: TWishlist }> = ({ wishlist }) => {
   return (
     <div>
       <List>
@@ -15,7 +16,8 @@ const Wishlist: FC<{ wishlist: TWishList }> = ({ wishlist }) => {
           </Item>
         ))}
       </List>
-      Total: ${wishlist.totalPrice}
+      <Total>Total: ${wishlist.totalPrice}</Total>
+      <WishlistItemEntry wishlist={wishlist} />
     </div>
   );
 };

@@ -1,10 +1,10 @@
 import React, { FC, ChangeEvent } from "react";
 import { observer } from "mobx-react";
 
-import { TWishListItem } from "../../../models/WishList";
-import { Wrapper, Thing, Image, Price } from "./styled";
+import { TWishlistItem } from "../../../models/Wishlist/Wishlist";
+import { Wrapper, Name, Image, Price } from "./styled";
 
-const WishlistItemEdit: FC<{ item: TWishListItem }> = ({ item }) => {
+const WishlistItemEdit: FC<{ item: TWishlistItem }> = ({ item }) => {
   const onPriceInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     const price = parseFloat(e.target.value);
     if (!isNaN(price)) {
@@ -21,14 +21,14 @@ const WishlistItemEdit: FC<{ item: TWishListItem }> = ({ item }) => {
 
   return (
     <Wrapper>
-      <Thing>
-        Thing
+      <Name>
+        Name
         <input
           type="text"
           value={item.name}
           onChange={onTextInputChange(item.changeName)}
         />
-      </Thing>
+      </Name>
       <Price>
         Price
         <input type="number" value={item.price} onChange={onPriceInputChange} />

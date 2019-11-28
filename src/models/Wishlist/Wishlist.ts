@@ -1,8 +1,9 @@
-import { types, Instance, getParent, cast } from "mobx-state-tree";
+import { types, Instance, getParent, cast, destroy } from "mobx-state-tree";
+import shortid from "shortid";
 
-export const WishListItem = types
+export const WishlistItem = types
   .model({
-    id: types.identifier,
+    id: types.optional(types.identifier, shortid()),
     name: types.string,
     price: types.number,
     image: ""
@@ -18,22 +19,22 @@ export const WishListItem = types
       self.price = newPrice;
     },
     remove() {
-      getParent<TWishList>(self, 2).remove(cast(self));
+      getParent<TWishlist>(self, 2).remove(cast(self));
     }
   }));
 
-export type TWishListItem = Instance<typeof WishListItem>;
+export type TWishlistItem = Instance<typeof WishlistItem>;
 
-export const WishList = types
+export const Wishlist = types
   .model({
-    items: types.array(WishListItem)
+    items: types.array(WishlistItem)
   })
   .actions(self => ({
-    add(item: TWishListItem) {
+    add(item: TWishlistItem) {
       self.items.push(item);
     },
-    remove(item: TWishListItem) {
-      self.items.splice(self.items.indexOf(item), 1);
+    remove(item: TWishlistItem) {
+      destroy(item);
     }
   }))
   .views(self => ({
@@ -42,4 +43,4 @@ export const WishList = types
     }
   }));
 
-export type TWishList = Instance<typeof WishList>;
+export type TWishlist = Instance<typeof Wishlist>;

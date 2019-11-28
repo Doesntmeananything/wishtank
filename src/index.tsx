@@ -2,20 +2,18 @@ import React from "react";
 import ReactDOM from "react-dom";
 
 import App from "./components/App";
-import { WishList } from "./models/WishList";
+import { Wishlist } from "./models/Wishlist/Wishlist";
 import * as serviceWorker from "./serviceWorker";
 
-const wishlist = WishList.create({
+const wishlist = Wishlist.create({
   items: [
     {
-      id: "lego",
       name: "Lego City",
       price: 349.99,
       image:
         "https://cdn.bmstores.co.uk/images/hpcProductImage/imgFull/351534-lego-city-mars-research-shuttle-2.jpg"
     },
     {
-      id: "guitar",
       name: "Yamaha RGX420",
       price: 850.0,
       image:
