@@ -1,4 +1,4 @@
 {
   "eslint.nodePath": null,
-  "eslint.packageManager": "pnpm"
+  "eslint.packageManager": "yarn"
 }

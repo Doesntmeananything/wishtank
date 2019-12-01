@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 
-import { TWishlist } from "../../models/Wishlist/Wishlist";
+import { TWishlist } from "../../models/Wishlist";
 import Wishlist from "../Wishlist";
 import GlobalStyle from "../../globalStyle";
 import { Wrapper, Header, Logo } from "./styled";

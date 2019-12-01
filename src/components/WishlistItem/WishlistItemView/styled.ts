@@ -18,10 +18,14 @@ export const Data = styled.div`
 `;
 
 export const Image = styled.div`
+  flex-shrink: 0;
+  width: 100px;
+  height: 80px;
+
   img {
     display: block;
-    height: 80px;
-    width: 100px;
+    width: 100%;
+    height: 100%;
     object-fit: cover;
   }
 `;

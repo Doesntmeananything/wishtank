@@ -5,13 +5,11 @@ import { Button } from "../common";
 export const Buttons = styled.div`
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  margin-left: 18px;
 
   ${Button} {
-    width: 30px;
-    height: 30px;
     padding: 0;
-    margin-left: 12px;
-    border-radius: 50%;
 
     &:not(:last-child) {
       margin-bottom: 8px;

@@ -1,4 +1,5 @@
 import styled, { css } from "styled-components/macro";
+import { lighten, desaturate } from "polished";
 
 interface ButtonProps {
   variant?: "round" | "square";
@@ -6,8 +7,8 @@ interface ButtonProps {
 
 const Geometry = {
   round: css`
-    width: 30px;
-    height: 30px;
+    width: 32px;
+    height: 32px;
     padding: 0;
     border-radius: 50%;
   `,
@@ -18,17 +19,29 @@ const Geometry = {
 };
 
 export const Button = styled.button<ButtonProps>`
+  display: flex;
+  justify-content: center;
+  align-items: center;
   flex-shrink: 0;
   ${({ variant = "round" }) => Geometry[variant]};
+  font-size: 1rem;
   color: darkred;
   background: transparent;
-  border: 1px solid darkred;
+  border: 2px solid darkred;
+
   outline: none;
   cursor: pointer;
-  transition: all 0.2s;
+  transition: all 0.1s;
+
+  svg {
+    width: 20px;
+    height: 20px;
+    fill: transparent;
+    stroke: currentColor;
+  }
 
   &:hover {
-    color: white;
     background: darkred;
+    color: snow;
   }
 `;

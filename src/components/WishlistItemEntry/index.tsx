@@ -1,35 +1,33 @@
 import React, { FC, useState, useCallback } from "react";
+import { Plus } from "react-feather";
 
-import { WishlistItem, TWishlist } from "../../models/Wishlist/Wishlist";
+import { WishlistItem, TWishlist } from "../../models/Wishlist";
 import WishlistItemEdit from "../WishlistItem/WishlistItemEdit";
 import { Button } from "../common";
 
-const generateNewItem = () =>
+const createNewItem = () =>
   WishlistItem.create({
     name: "",
     price: 0
   });
 
 const WishlistItemEntry: FC<{ wishlist: TWishlist }> = ({ wishlist }) => {
-  const [newItem, setNewItem] = useState(generateNewItem());
+  const [newItem, setNewItem] = useState(createNewItem());
 
   const onAdd = useCallback(() => {
     wishlist.add(newItem);
-    setNewItem(generateNewItem());
+    setNewItem(createNewItem());
   }, [wishlist, newItem]);
 
   return (
-    <div>
-      <WishlistItemEdit item={newItem} />
-      <Button
-        css={`
-          font-size: 2em;
-        `}
-        onClick={onAdd}
-      >
-        ＋
-      </Button>
-    </div>
+    <WishlistItemEdit
+      item={newItem}
+      controls={
+        <Button onClick={onAdd}>
+          <Plus />
+        </Button>
+      }
+    />
   );
 };
 

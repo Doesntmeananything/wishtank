@@ -1,11 +1,12 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import { SnapshotOrInstance, onSnapshot, getSnapshot } from "mobx-state-tree";
 
 import App from "./components/App";
-import { Wishlist } from "./models/Wishlist/Wishlist";
+import { Wishlist, TWishlist } from "./models/Wishlist";
 import * as serviceWorker from "./serviceWorker";
 
-const wishlist = Wishlist.create({
+let initialState: SnapshotOrInstance<TWishlist> = {
   items: [
     {
       name: "Lego City",
@@ -20,9 +21,36 @@ const wishlist = Wishlist.create({
         "https://images.equipboard.com/uploads/item/image/17588/yamaha-rgx-420-dzii-sb-satin-black-xl.jpg"
     }
   ]
+};
+
+let wishlist = Wishlist.create(initialState);
+
+onSnapshot(wishlist, snapshot => {
+  localStorage.setItem("wishlist", JSON.stringify(snapshot));
 });
 
-ReactDOM.render(<App wishlist={wishlist} />, document.getElementById("root"));
+const savedState = localStorage.getItem("wishlist");
+if (savedState) {
+  const savedStateJson = JSON.parse(savedState);
+  initialState = Wishlist.is(savedStateJson) ? savedStateJson : initialState;
+}
+
+const renderApp = () =>
+  ReactDOM.render(<App wishlist={wishlist} />, document.getElementById("root"));
+
+renderApp();
+
+if (module.hot) {
+  module.hot.accept("./components/App", () => {
+    renderApp();
+  });
+
+  module.hot.accept("./models/Wishlist", () => {
+    const snapshot = getSnapshot(wishlist);
+    wishlist = Wishlist.create(snapshot);
+    renderApp();
+  });
+}
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

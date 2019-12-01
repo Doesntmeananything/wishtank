@@ -7,7 +7,7 @@ import {
   IJsonPatch
 } from "mobx-state-tree";
 import { reaction } from "mobx";
-import { WishlistItem, Wishlist, TWishlist } from "./Wishlist";
+import { WishlistItem, Wishlist, TWishlist } from ".";
 
 it("should create an instance of a model", () => {
   const item = WishlistItem.create({
