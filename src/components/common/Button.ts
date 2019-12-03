@@ -1,5 +1,4 @@
 import styled, { css } from "styled-components/macro";
-import { lighten, desaturate } from "polished";
 
 interface ButtonProps {
   variant?: "round" | "square";

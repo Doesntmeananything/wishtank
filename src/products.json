@@ -1,0 +1,39 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "{{fake.commerce.productName}}",
+      "description": "{{paragraph}}",
+      "color": "{{fake.commerce.color}}",
+      "brand": "{{fake.company.companyName}}",
+      "image": "{{fake.image.image}}",
+      "url": "{{fake.internet.url}}",
+      "stock": 0,
+      "price": 24.95,
+      "category_id": 1
+    },
+    {
+      "id": 800,
+      "name": "{{fake.commerce.productName}}",
+      "description": "{{paragraph}}",
+      "color": "{{fake.commerce.color}}",
+      "brand": "{{fake.company.companyName}}",
+      "url": "{{fake.internet.url}}",
+      "stock": 50,
+      "price": 512.25,
+      "category_id": 10
+    }
+  ],
+  "categories": [
+    {
+      "id": 1,
+      "name": "{{fake.commerce.department}}",
+      "description": "{{sentence}}"
+    },
+    {
+      "id": 10,
+      "name": "{{fake.commerce.department}}",
+      "description": "{{sentence}}"
+    }
+  ]
+}
