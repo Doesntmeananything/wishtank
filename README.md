@@ -2,6 +2,8 @@ A [mobx-state-tree tutorial](https://egghead.io/courses/manage-application-state
 
 # Todo
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/penumbra1/wishtank.svg)](https://greenkeeper.io/)
+
 - [ ] packtracker
 - [ ] Theming
 - [ ] Import shortcuts
